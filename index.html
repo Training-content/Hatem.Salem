@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">السيرة الذاتية - المهندس حاتم سالم حسن باناصر</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6; /* Light gray-green background */
+        }
+        /* Custom border color */
+        h2 {
+            border-bottom-color: #004d40; /* Dark teal border */
+        }
+        /* Custom icon colors */
+        .icon-teal {
+            color: #00796b; /* Teal icon color */
+        }
+        
+        /* Language toggle button styles */
+        #lang-toggle {
+            position: fixed; /* Changed from absolute to fixed */
+            bottom: 1.5rem; /* Changed from top to bottom */
+            right: 1.5rem; /* Changed from left to right */
+            background-color: white;
+            color: #00796b;
+            border: 2px solid #00796b;
+            border-radius: 9999px; /* full */
+            width: 3rem; /* 48px */
+            height: 3rem; /* 48px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem; /* 20px */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease-in-out;
+            z-index: 50;
+        }
+        #lang-toggle:hover {
+            background-color: #E0F2F1; /* teal-50 */
+            transform: scale(1.05);
+        }
+
+        /* Adjust button position for RTL */
+        [dir="rtl"] #lang-toggle {
+            right: auto; /* Changed from left: auto */
+            left: 1.5rem; /* Changed from right: 1.5rem */
+        }
+        
+        /* Adjust list markers for RTL/LTR */
+        [dir="rtl"] ul {
+            margin-right: 1.25rem; /* mr-5 */
+        }
+        [dir="ltr"] ul {
+            margin-left: 1.25rem; /* ml-5 */
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-7xl p-4 sm:p-8 my-8"> <!-- Removed 'relative' class -->
+        <!-- Language Toggle Button -->
+        <button id="lang-toggle" aria-label="Toggle Language">
+            <i class="fas fa-globe"></i>
+        </button>
+
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
+            
+            <!-- Header Section -->
+            <header class="p-8 sm:p-12 bg-gray-50 border-b-4 border-teal-700">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    <!-- Profile Image -->
+                    <img src="https://placehold.co/150x150/E0F2F1/00796B?text=HB&font=inter" 
+                         alt="المهندس حاتم باناصر" 
+                         data-translate-alt="profileAlt"
+                         class="rounded-full w-32 h-32 md:w-40 md:h-40 object-cover border-4 border-teal-600 shadow-md">
+                    
+                    <!-- Personal Info -->
+                    <div class="flex-grow text-center md:text-right">
+                        <h1 class="text-4xl font-bold text-teal-900" data-translate="profileName">المهندس حاتم سالم حسن باناصر</h1>
+                        <p class="text-xl text-gray-600 mt-2" data-translate="location">جدة, المملكة العربية السعودية</p>
+                        
+                        <!-- Contact Details -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6 text-sm text-gray-700">
+                            <div class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-phone fa-fw me-2 icon-teal"></i>
+                                <a href="tel:+966555554051" class="hover:text-teal-700" data-translate="phone">+966555554051</a>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start col-span-2 sm:col-span-1">
+                                <i class="fas fa-envelope fa-fw me-2 icon-teal"></i>
+                                <a href="mailto:HATEMBANASER@GMAIL.COM" class="hover:text-teal-700 break-all" data-translate="email">HATEMBANASER@GMAIL.COM</a>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-flag fa-fw me-2 icon-teal"></i>
+                                <span data-translate="nationality">سعودي</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-calendar-days fa-fw me-2 icon-teal"></i>
+                                <span data-translate="dob">1978/12/05</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-ring fa-fw me-2 icon-teal"></i>
+                                <span data-translate="maritalStatus">متزوج</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="flex justify-center md:justify-start space-x-4 space-x-reverse mt-6">
+                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="Twitter">
+                                <i class="fa-brands fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="Blog/Website">
+                                <i class="fa-solid fa-globe fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <main class="grid grid-cols-1 lg:grid-cols-3 gap-0">
+
+                <!-- Primary Column (Right Side in RTL) -->
+                <div class="lg:col-span-2 p-8 sm:p-12">
+                    
+                    <!-- About Me Section -->
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="aboutMeTitle">نبذة عني</h2>
+                        <p class="text-gray-700 leading-relaxed" data-translate="aboutMeText">
+                            أسعى للحصول على وظيفة أستطيع من خلالها نقل خبراتي ومهاراتي المكتسبة من خلال الوظائف الفنية والإدارية والاستشارية والتنفيذية والقيادية التي عملت بها خلال حياتي العملية في الشركات المختلفة في القطاعين الحكومي والخاص وذلك لتطبيق مافتح الله به علي لتطوير عجلة الأعمال والإنتاجية في قطاع العمل بالمملكة العربية السعودية سعياً لتحقيق رؤية سيدي ولي العهد سمو الأمير محمد بن سلمان المملكة ۲۰۳۰ والتي تصبو نتائجها لتطوير وتنمية شباب وشابات الوطن للانخراط في سوق العمل لتعزيز مكانة المملكة ووضعها الاقتصادي ومكانتها بين دول العالم المتقدم.
+                        </p>
+                    </section>
+
+                    <!-- Work Experience Section -->
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="experienceTitle">الخبرة العملية</h2>
+                        <div class="space-y-6">
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp1Title">الرئيس التنفيذي</h3>
+                                <p class="text-gray-600" data-translate="exp1Company">شركة ركايا للإستشارات الإدارية</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp1Date">٢٠٢٣ - ٢٠٢٥</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp2Title">مستشار تطوير الاعمال</h3>
+                                <p class="text-gray-600" data-translate="exp2Company">شركة اتقان للاستشارات</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp2Date">٢٠٢٠ - ٢٠٢٢</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp3Title">رئيس قطاع التشغيل والصيانة</h3>
+                                <p class="text-gray-600" data-translate="exp3Company">المركز الطبي الدولي IMC - جدة</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp3Date">٢٠١٧ - حتى الان</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp4Title">مدير عام صيانة الممتلكات</h3>
+                                <p class="text-gray-600" data-translate="exp4Company">شركة الخطوط السعودية</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp4Date">٢٠١٥ - ٢٠١٧</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp5Title">مستشار التدريب والتطوير</h3>
+                                <p class="text-gray-600" data-translate="exp5Company">مركز انتقاء وإرتقاء للتدريب والتطوير - جدة</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp5Date">٢٠١٥ - ٢٠١٧</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp6Title">مدير عام صيانة المرافق</h3>
+                                <p class="text-gray-600" data-translate="exp6Company">الخطوط الجوية العربية السعودية</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp6Date">٢٠١٤ - ٢٠١٥</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp7Title">مدير إدارة المشاريع والتنسيق</h3>
+                                <p class="text-gray-600" data-translate="exp7Company">الخطوط الجوية العربية السعودية</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp7Date">٢٠١٢ - ٢٠١٤</p>
+                            </div>
+                            <!-- Experience Item -->
+                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp8Title">مستشار التوظيف والتقييم المهني</h3>
+                                <p class="text-gray-600" data-translate="exp8Company">شركة عبداللطيف جميل تويوتا اللجنة الإستشارية</p>
+                                <p class="text-sm text-gray-500 mt-1" data-translate="exp8Date">(التواريخ غير محددة في الصورة)</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Projects Section -->
+                    <section class="mb-10">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="projectsTitle">المشاريع (أكثر من 370 مشروع وإنجاز)</h2>
+                        <div class="space-y-6">
+                            <!-- Project Item -->
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj1Title">المركز الطبي الدولي (IMC)</h3>
+                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                    <li data-translate="proj1Li1">مشروع سكن الممرضات.</li>
+                                    <li data-translate="proj1Li2">تصميم وتأثيث الأجنحة والوحدات السكنية ومرافق المركز.</li>
+                                    <li data-translate="proj1Li3">إدارة المرافق والصيانة والتشغيل بالمركز.</li>
+                                    <li data-translate="proj1Li4">إبرام العقود والاتفاقيات مع أكثر من ١٢ شركة متخصصة كبرى في مجال الضيافة والفندقة والنظافة.</li>
+                                </ul>
+                            </div>
+                            <!-- Project Item -->
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj2Title">الخطوط الجوية العربية السعودية (SAUDIA)</h3>
+                                <p class="text-sm text-gray-600" data-translate="proj2Subtitle">كمدير إدارة المشاريع والتنسيق (ميزانيات تتخطى ١٧٦ مليون ريال)</p>
+                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                    <li data-translate="proj2Li1">مشروع أكاديمية الأمير سلطان لعلوم الطيران بجدة (المرحلة الثانية).</li>
+                                    <li data-translate="proj2Li2">إنشاء وتشغيل وصيانة محطة تنقية المياه بمدينة الخطوط السعودية (بالتعاون مع هيتاشي).</li>
+                                    <li data-translate="proj2Li3">مجمع فلل فاخرة لسكن مستشارين بمدينة الخطوط السعودية.</li>
+                                    <li data-translate="proj2Li4">إبرام العقود والاتفاقيات مع أكثر من ١٢ شركة متخصصة في الاستشارات الهندسية والمقاولات.</li>
+                                </ul>
+                            </div>
+                            <!-- Project Item -->
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj3Title">شركة الخطوط السعودية لتنمية وتطوير العقار (SARED)</h3>
+                                <p class="text-sm text-gray-600" data-translate="proj3Subtitle">كمدير عام صيانة الممتلكات (ميزانيات تتخطى ٣١٢ مليون ريال)</p>
+                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                    <li data-translate="proj3Li1">تصميم وتأثيث مبنى ومكاتب الإدارة العامة للشركة بجدة والرياض.</li>
+                                    <li data-translate="proj3Li2">تصميم وتأثيث مبنى الإدارة الإقليمية للشركة بدبي.</li>
+                                    <li data-translate="proj3Li3">مشاريع مباني ومكاتب فروع (بومباي، جاكرتا، دكا).</li>
+                                    <li data-translate="proj3Li4">صيانة وتشغيل مدينة السعودية بجدة.</li>
+                                    <li data-translate="proj3Li5">إدارة عقود الصيانة والتشغيل لأكثر من ١٤٩ موقع.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Media Activities Section -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="mediaTitle">الأنشطة الإعلامية</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3" data-translate="media1Title">مقالات</h3>
+                                <p class="text-gray-700" data-translate="media1Text">مقال بعنوان "آليات إختيار الموظفين"</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3" data-translate="media2Title">لقاءات تلفزيونية وإذاعية</h3>
+                                <ul class="list-disc list-outside text-gray-700 space-y-1">
+                                    <li data-translate="media2Li1">فهم الشخصيات وتحليلها (2016/11/06)</li>
+                                    <li data-translate="media2Li2">الذكاء العاطفي ولغة الحوار (2015/02/01)</li>
+                                    <li data-translate="media2Li3">فنيات التفاوض والإقناع في الحياة (برنامج نبراس 2013/06/04)</li>
+                                    <li data-translate="media2Li4">التخطيط البعيد المدى للحياة العملية (لقاء إذاعي 2018/10/10)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar Column (Left Side in RTL) -->
+                <aside class="lg:col-span-1 p-8 sm:p-12 bg-teal-50 lg:border-r-8 border-teal-100">
+
+                    <!-- Education Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="educationTitle">التعليم</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-gray-900" data-translate="edu1Title">بكالوريوس الهندسة المعمارية</h3>
+                                <p class="text-sm text-gray-600" data-translate="edu1Text">كلية الهندسة والعمارة الإسلامية, جامعة أم القرى، مكة المكرمة</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900" data-translate="edu2Title">دبلوم ورخصة معتمدة لإدارة الأملاك العقارية</h3>
+                                <p class="text-sm text-gray-600" data-translate="edu2Text">معهد دبي العقاري - حكومة دبي</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900" data-translate="edu3Title">دبلوم مقيم وظيفي معتمد</h3>
+                                <p class="text-sm text-gray-600" data-translate="edu3Text">المركز العربي للتعليم لإختيار الموظفين</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900" data-translate="edu4Title">دبلوم عالي في الإرشاد الأسري</h3>
+                                <p class="text-sm text-gray-600" data-translate="edu4Text">أكاديمية الفرحة بدبي (إشراف د. جاسم المطوع)</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Skills Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="skillsTitle">المهارات</h2>
+                        <div class="grid grid-cols-2 gap-3 text-sm">
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-sitemap fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill1">التخطيط الاستراتيجي</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-file-signature fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill2">إبرام العقود والاتفاقيات</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-calculator fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill3">بناء ودراسة الميزانيات</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-lightbulb fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill4">تحفيز الآخرين</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-drafting-compass fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill5">تصميم وتقييم البرامج</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-database fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill6">برنامج ساب (SAP)</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-magnifying-glass-chart fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill7">تحليل الإحتياجات</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-comments fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill8">التفاوض والإقناع</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-user-check fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill9">تحديد المعارف والسلوكيات</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-concierge-bell fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill10">الضيافة والفندقة</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-bullhorn fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill11">المبيعات والتسويق</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-cogs fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill12">التطوير وإعداد الأنظمة</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-brain fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill13">التحليل النفسي الوظيفي</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-chalkboard-user fa-fw me-2 icon-teal"></i>
+                                <span data-translate="skill14">التدريب</span>
+                            </div>
+                        </div>
+                    </section>
+
+                     <!-- Training Courses Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="coursesTitle">الدورات التدريبية</h2>
+                        <p class="text-gray-700 mb-3" data-translate="coursesSubtitle">أكثر من 89 دورة وورشة عمل ورخص معتمدة (من ١٩٩٨ إلى ٢٠١٨)</p>
+                        <h3 class="font-semibold text-gray-800 mb-2" data-translate="coursesHeader">من أهم المواضيع:</h3>
+                        <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
+                            <li data-translate="course1">القوة والنفوذ</li>
+                            <li data-translate="course2">إعداد المدربيين المعتمديين</li>
+                            <li data-translate="course3">القيادة</li>
+                            <li data-translate="course4">تدريب وتنسيقها الإداري</li>
+                            <li data-translate="course5">قيادة فرق المبيعات</li>
+                            <li data-translate="course6">والإقناع والتفاوض</li>
+                            <li data-translate="course7">المستشارين والمدربين</li>
+                        </ul>
+                    </section>
+
+                    <!-- Memberships Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="membershipsTitle">العضويات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                            <li data-translate="mem1">عضو جمعية الشرق الأوسط لإدارة المرافق (MEFMA)</li>
+                            <li data-translate="mem2">عضوية الهيئة السعودية للمهندسين</li>
+                            <li data-translate="mem3">عضوية الكود السعودي للبناء بالرياض</li>
+                            <li data-translate="mem4">عضوية مجلس عمادة شئون الطلاب بجامعة أم القرى</li>
+                        </ul>
+                    </section>
+
+                    <!-- Conferences Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="conferencesTitle">المؤتمرات والندوات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                            <li data-translate="conf1">الملتقى الأول والثاني للجودة النوعية (الخطوط السعودية)</li>
+                            <li data-translate="conf2">مؤتمر الكود السعودي للبناء (الرياض)</li>
+                            <li data-translate="conf3">مؤتمر الخدمات والمبيعات (الخطوط السعودية)</li>
+                            <li data-translate="conf4">يوم المهنة السعودي الأول والثاني (جامعة أم القرى)</li>
+                            <li data-translate="conf5">ندوة البيئة العمرانية (كلية الهندسة بجامعة أم القرى)</li>
+                            <li data-translate="conf6">المؤتمر الهندسي السعودي الخامس (جامعة أم القرى)</li>
+                        </ul>
+                    </section>
+
+                    <!-- Certifications Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="certificationsTitle">الإعتمادات</h2>
+                        <p class="text-gray-700" data-translate="cert1">شهادة إعتماد من المجلس الأمريكي لإعتماد الشهادات المهنية للمدراء (ACAC)</p>
+                    </section>
+
+                    <!-- Languages Section -->
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="languagesTitle">اللغات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                            <li data-translate="lang1">اللغة العربية (اللغة الأم)</li>
+                            <li data-translate="lang2">اللغة الإنجليزية (مستوى متقدم)</li>
+                        </ul>
+                    </section>
+
+                    <!-- References Section -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="referencesTitle">المعرفون</h2>
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-900" data-translate="ref1Name">د / سعد بن عطية الغامدي</h3>
+                            <p class="text-sm text-gray-600" data-translate="ref1Title">نائب الرئيس التنفيذي, الشركة عبد اللطيف جميل ونائب عضو مجلس إدارة مصرف الإنماء</p>
+                            <p class="text-sm text-gray-600" data-translate="ref1Phone">00966505451042</p>
+                        </div>
+                        <p class="text-gray-600 italic" data-translate="ref2">جميع المراجع متاحة عند الطلب</p>
+                    </section>
+
+                </aside>
+
+            </main>
+            
+            <!-- Footer -->
+            <footer class="text-center p-4 bg-gray-50 border-t border-gray-200">
+                <!-- Removed the <p> tag that was here -->
+            </footer>
+        </div>
+    </div>
+
+    <!-- Translation Script -->
+    <script>
+        const translations = {
+            ar: {
+                pageTitle: "السيرة الذاتية - المهندس حاتم سالم حسن باناصر",
+                profileName: "المهندس حاتم سالم حسن باناصر",
+                location: "جدة, المملكة العربية السعودية",
+                phone: "+966555554051",
+                email: "HATEMBANASER@GMAIL.COM",
+                nationality: "سعودي",
+                dob: "1978/12/05",
+                maritalStatus: "متزوج",
+                aboutMeTitle: "نبذة عني",
+                aboutMeText: "أسعى للحصول على وظيفة أستطيع من خلالها نقل خبراتي ومهاراتي المكتسبة من خلال الوظائف الفنية والإدارية والاستشارية والتنفيذية والقيادية التي عملت بها خلال حياتي العملية في الشركات المختلفة في القطاعين الحكومي والخاص وذلك لتطبيق مافتح الله به علي لتطوير عجلة الأعمال والإنتاجية في قطاع العمل بالمملكة العربية السعودية سعياً لتحقيق رؤية سيدي ولي العهد سمو الأمير محمد بن سلمان المملكة ۲۰۳۰ والتي تصبو نتائجها لتطوير وتنمية شباب وشابات الوطن للانخراط في سوق العمل لتعزيز مكانة المملكة ووضعها الاقتصادي ومكانتها بين دول العالم المتقدم.",
+                experienceTitle: "الخبرة العملية",
+                exp1Title: "الرئيس التنفيذي",
+                exp1Company: "شركة ركايا للإستشارات الإدارية",
+                exp1Date: "٢٠٢٣ - ٢٠٢٥",
+                exp2Title: "مستشار تطوير الاعمال",
+                exp2Company: "شركة اتقان للاستشارات",
+                exp2Date: "٢٠٢٠ - ٢٠٢٢",
+                exp3Title: "رئيس قطاع التشغيل والصيانة",
+                exp3Company: "المركز الطبي الدولي IMC - جدة",
+                exp3Date: "٢٠١٧ - حتى الان",
+                exp4Title: "مدير عام صيانة الممتلكات",
+                exp4Company: "شركة الخطوط السعودية",
+                exp4Date: "٢٠١٥ - ٢٠١٧",
+                exp5Title: "مستشار التدريب والتطوير",
+                exp5Company: "مركز انتقاء وإرتقاء للتدريب والتطوير - جدة",
+                exp5Date: "٢٠١٥ - ٢٠١٧",
+                exp6Title: "مدير عام صيانة المرافق",
+                exp6Company: "الخطوط الجوية العربية السعودية",
+                exp6Date: "٢٠١٤ - ٢٠١٥",
+                exp7Title: "مدير إدارة المشاريع والتنسيق",
+                exp7Company: "الخطوط الجوية العربية السعودية",
+                exp7Date: "٢٠١٢ - ٢٠١٤",
+                exp8Title: "مستشار التوظيف والتقييم المهني",
+                exp8Company: "شركة عبداللطيف جميل تويوتا اللجنة الإستشارية",
+                exp8Date: "(التواريخ غير محددة في الصورة)",
+                projectsTitle: "المشاريع (أكثر من 370 مشروع وإنجاز)",
+                proj1Title: "المركز الطبي الدولي (IMC)",
+                proj1Li1: "مشروع سكن الممرضات.",
+                proj1Li2: "تصميم وتأثيث الأجنحة والوحدات السكنية ومرافق المركز.",
+                proj1Li3: "إدارة المرافق والصيانة والتشغيل بالمركز.",
+                proj1Li4: "إبرام العقود والاتفاقيات مع أكثر من ١٢ شركة متخصصة كبرى في مجال الضيافة والفندقة والنظافة.",
+                proj2Title: "الخطوط الجوية العربية السعودية (SAUDIA)",
+                proj2Subtitle: "كمدير إدارة المشاريع والتنسيق (ميزانيات تتخطى ١٧٦ مليون ريال)",
+                proj2Li1: "مشروع أكاديمية الأمير سلطان لعلوم الطيران بجدة (المرحلة الثانية).",
+                proj2Li2: "إنشاء وتشغيل وصيانة محطة تنقية المياه بمدينة الخطوط السعودية (بالتعاون مع هيتاشي).",
+                proj2Li3: "مجمع فلل فاخرة لسكن مستشارين بمدينة الخطوط السعودية.",
+                proj2Li4: "إبرام العقود والاتفاقيات مع أكثر من ١٢ شركة متخصصة في الاستشارات الهندسية والمقاولات.",
+                proj3Title: "شركة الخطوط السعودية لتنمية وتطوير العقار (SARED)",
+                proj3Subtitle: "كمدير عام صيانة الممتلكات (ميزانيات تتخطى ٣١٢ مليون ريال)",
+                proj3Li1: "تصميم وتأثيث مبنى ومكاتب الإدارة العامة للشركة بجدة والرياض.",
+                proj3Li2: "تصميم وتأثيث مبنى الإدارة الإقليمية للشركة بدبي.",
+                proj3Li3: "مشاريع مباني ومكاتب فروع (بومباي، جاكرتا، دكا).",
+                proj3Li4: "صيانة وتشغيل مدينة السعودية بجدة.",
+                proj3Li5: "إدارة عقود الصيانة والتشغيل لأكثر من ١٤٩ موقع.",
+                mediaTitle: "الأنشطة الإعلامية",
+                media1Title: "مقالات",
+                media1Text: "مقال بعنوان \"آليات إختيار الموظفين\"",
+                media2Title: "لقاءات تلفزيونية وإذاعية",
+                media2Li1: "فهم الشخصيات وتحليلها (2016/11/06)",
+                media2Li2: "الذكاء العاطفي ولغة الحوار (2015/02/01)",
+                media2Li3: "فنيات التفاوض والإقناع في الحياة (برنامج نبراس 2013/06/04)",
+                media2Li4: "التخطيط البعيد المدى للحياة العملية (لقاء إذاعي 2018/10/10)",
+                educationTitle: "التعليم",
+                edu1Title: "بكالوريوس الهندسة المعمارية",
+                edu1Text: "كلية الهندسة والعمارة الإسلامية, جامعة أم القرى، مكة المكرمة",
+                edu2Title: "دبلوم ورخصة معتمدة لإدارة الأملاك العقارية",
+                edu2Text: "معهد دبي العقاري - حكومة دبي",
+                edu3Title: "دبلوم مقيم وظيفي معتمد",
+                edu3Text: "المركز العربي للتعليم لإختيار الموظفين",
+                edu4Title: "دبلوم عالي في الإرشاد الأسري",
+                edu4Text: "أكاديمية الفرحة بدبي (إشراف د. جاسم المطوع)",
+                skillsTitle: "المهارات",
+                skill1: "التخطيط الاستراتيجي",
+                skill2: "إبرام العقود والاتفاقيات",
+                skill3: "بناء ودراسة الميزانيات",
+                skill4: "تحفيز الآخرين",
+                skill5: "تصميم وتقييم البرامج",
+                skill6: "برنامج ساب (SAP)",
+                skill7: "تحليل الإحتياجات",
+                skill8: "التفاوض والإقناع",
+                skill9: "تحديد المعارف والسلوكيات",
+                skill10: "الضيافة والفندقة",
+                skill11: "المبيعات والتسويق",
+                skill12: "التطوير وإعداد الأنظمة",
+                skill13: "التحليل النفسي الوظيفي",
+                skill14: "التدريب",
+                coursesTitle: "الدورات التدريبية",
+                coursesSubtitle: "أكثر من 89 دورة وورشة عمل ورخص معتمدة (من ١٩٩٨ إلى ٢٠١٨)",
+                coursesHeader: "من أهم المواضيع:",
+                course1: "القوة والنفوذ",
+                course2: "إعداد المدربيين المعتمديين",
+                course3: "القيادة",
+                course4: "تدريب وتنسيقها الإداري",
+                course5: "قيادة فرق المبيعات",
+                course6: "والإقناع والتفاوض",
+                course7: "المستشارين والمدربين",
+                membershipsTitle: "العضويات",
+                mem1: "عضو جمعية الشرق الأوسط لإدارة المرافق (MEFMA)",
+                mem2: "عضوية الهيئة السعودية للمهندسين",
+                mem3: "عضوية الكود السعودي للبناء بالرياض",
+                mem4: "عضوية مجلس عمادة شئون الطلاب بجامعة أم القرى",
+                conferencesTitle: "المؤتمرات والندوات",
+                conf1: "الملتقى الأول والثاني للجودة النوعية (الخطوط السعودية)",
+                conf2: "مؤتمر الكود السعودي للبناء (الرياض)",
+                conf3: "مؤتمر الخدمات والمبيعات (الخطوط السعودية)",
+                conf4: "يوم المهنة السعودي الأول والثاني (جامعة أم القرى)",
+                conf5: "ندوة البيئة العمرانية (كلية الهندسة بجامعة أم القرى)",
+                conf6: "المؤتمر الهندسي السعودي الخامس (جامعة أم القرى)",
+                certificationsTitle: "الإعتمادات",
+                cert1: "شهادة إعتماد من المجلس الأمريكي لإعتماد الشهادات المهنية للمدراء (ACAC)",
+                languagesTitle: "اللغات",
+                lang1: "اللغة العربية (اللغة الأم)",
+                lang2: "اللغة الإنجليزية (مستوى متقدم)",
+                referencesTitle: "المعرفون",
+                ref1Name: "د / سعد بن عطية الغامدي",
+                ref1Title: "نائب الرئيس التنفيذي, الشركة عبد اللطif Jameel & Deputy Board Member, Alinma Bank",
+                ref1Phone: "00966505451042",
+                ref2: "جميع المراجع متاحة عند الطلب",
+                /* footerText key removed */
+                profileAlt: "المهندس حاتم باناصر"
+            },
+            en: {
+                pageTitle: "CV - Eng. Hatem Salem Hassan Banaser",
+                profileName: "Eng. Hatem Salem Hassan Banaser",
+                location: "Jeddah, Saudi Arabia",
+                phone: "+966555554051",
+                email: "HATEMBANASER@GMAIL.COM",
+                nationality: "Saudi",
+                dob: "12/05/1978",
+                maritalStatus: "Married",
+                aboutMeTitle: "About Me",
+                aboutMeText: "I am seeking a position where I can transfer my acquired expertise and skills from the technical, administrative, consulting, executive, and leadership roles I have held throughout my career in various companies in both the public and private sectors. I aim to apply what God has blessed me with to advance the wheels of business and productivity in the Saudi Arabian labor sector, striving to achieve the vision of my leader, Crown Prince Mohammed bin Salman, for the Kingdom 2030. This vision aims to develop and empower the nation's youth to join the workforce, enhancing the Kingdom's status, economy, and position among developed nations.",
+                experienceTitle: "Work Experience",
+                exp1Title: "Chief Executive Officer (CEO)",
+                exp1Company: "Rakaya Management Consulting Company",
+                exp1Date: "2023 - 2025",
+                exp2Title: "Business Development Consultant",
+                exp2Company: "Etqan Consulting",
+                exp2Date: "2020 - 2022",
+                exp3Title: "Head of Operations and Maintenance Sector",
+                exp3Company: "International Medical Center (IMC) - Jeddah",
+                exp3Date: "2017 - Present",
+                exp4Title: "General Manager of Property Maintenance",
+                exp4Company: "Saudi Arabian Airlines",
+                exp4Date: "2015 - 2017",
+                exp5Title: "Training and Development Consultant",
+                exp5Company: "Entiqaa & Erteqaa Training and Development Center - Jeddah",
+                exp5Date: "2015 - 2017",
+                exp6Title: "General Manager of Facility Maintenance",
+                exp6Company: "Saudi Arabian Airlines",
+                exp6Date: "2014 - 2015",
+                exp7Title: "Project Management and Coordination Director",
+                exp7Company: "Saudi Arabian Airlines",
+                exp7Date: "2012 - 2014",
+                exp8Title: "Recruitment and Assessment Consultant",
+                exp8Company: "Abdul Latif Jameel Toyota Advisory Committee",
+                exp8Date: "(Dates not specified in the image)",
+                projectsTitle: "Projects (Over 370 projects and achievements)",
+                proj1Title: "International Medical Center (IMC)",
+                proj1Li1: "Nurses' accommodation project.",
+                proj1Li2: "Design and furnishing of suites, residential units, and center facilities.",
+                proj1Li3: "Facility management, maintenance, and operations at the center.",
+                proj1Li4: "Concluding contracts and agreements with more than 12 major specialized companies in hospitality, hotel services, and cleaning.",
+                proj2Title: "Saudi Arabian Airlines (SAUDIA)",
+                proj2Subtitle: "As Director of Project Management and Coordination (Budgets exceeding 176 million SAR)",
+                proj2Li1: "Prince Sultan Aviation Academy project in Jeddah (Phase Two).",
+                proj2Li2: "Establishment, operation, and maintenance of the water purification plant in Saudi Airlines City (in cooperation with Hitachi).",
+                proj2Li3: "Luxury villa complex for consultants in Saudi Airlines City.",
+                proj2Li4: "Concluding contracts and agreements with more than 12 specialized companies in engineering consultancy and contracting.",
+                proj3Title: "Saudi Airlines Real Estate Development Co. (SARED)",
+                proj3Subtitle: "As General Manager of Property Maintenance (Budgets exceeding 312 million SAR)",
+                proj3Li1: "Design and furnishing of the company's general management building and offices in Jeddah and Riyadh.",
+                proj3Li2: "Design and furnishing of the company's regional management building in Dubai.",
+                proj3Li3: "Branch office building projects in (Mumbai, India - Jakarta, Indonesia - Dhaka, Bangladesh).",
+                proj3Li4: "Maintenance and operation of Saudia City in Jeddah.",
+                proj3Li5: "Managing maintenance and operation contracts for more than 149 company sites.",
+                mediaTitle: "Media Activities",
+                media1Title: "Articles",
+                media1Text: "Article titled \"Employee Selection Mechanisms\"",
+                media2Title: "TV and Radio Interviews",
+                media2Li1: "Understanding and Analyzing Personalities (11/06/2016)",
+                media2Li2: "Emotional Intelligence and Language of Dialogue (02/01/2015)",
+                media2Li3: "Techniques of Negotiation and Persuasion in Life (Nibras Program 06/04/2013)",
+                media2Li4: "Long-Term Career Planning (Radio Interview 10/10/2018)",
+                educationTitle: "Education",
+                edu1Title: "B.Sc. in Architectural Engineering",
+                edu1Text: "College of Engineering and Islamic Architecture, Umm Al-Qura University, Makkah",
+                edu2Title: "Diploma and Certified License in Real Estate Property Management",
+                edu2Text: "Dubai Real Estate Institute - Government of Dubai",
+                edu3Title: "Certified Job Assessor Diploma",
+                edu3Text: "Arab Center for Education for Employee Selection",
+                edu4Title: "Higher Diploma in Family Counseling",
+                edu4Text: "Al-Farha Academy in Dubai (Supervised by Dr. Jassem Al-Mutawa)",
+                skillsTitle: "Skills",
+                skill1: "Strategic Planning",
+                skill2: "Contract & Agreement Mgt.",
+                skill3: "Budgeting & Financial Study",
+                skill4: "Motivating Others",
+                skill5: "Program Design & Evaluation",
+                skill6: "SAP Software",
+                skill7: "Needs Analysis",
+                skill8: "Negotiation & Persuasion",
+                skill9: "Behavioral Assessment",
+                skill10: "Hospitality & Hotel Mgt.",
+                skill11: "Sales & Marketing",
+                skill12: "Systems Development",
+                skill13: "Job Psychometric Analysis",
+                skill14: "Training",
+                coursesTitle: "Training Courses",
+                coursesSubtitle: "Over 89 courses, workshops, and certified licenses (from 1998 to 2018)",
+                coursesHeader: "Key topics include:",
+                course1: "Power and Influence",
+                course2: "Certified Trainer Preparation",
+                course3: "Leadership",
+                course4: "Training & Admin. Coordination",
+                course5: "Sales Team Leadership",
+                course6: "Persuasion and Negotiation",
+                course7: "Consultants and Trainers",
+                membershipsTitle: "Memberships",
+                mem1: "Member, Middle East Facility Management Association (MEFMA)",
+                mem2: "Member, Saudi Council of Engineers",
+                mem3: "Member, Saudi Building Code, Riyadh",
+                mem4: "Member, Deanship of Student Affairs Council, Umm Al-Qura University",
+                conferencesTitle: "Conferences and Seminars",
+                conf1: "1st & 2nd Quality Forum (Saudi Airlines)",
+                conf2: "Saudi Building Code Conference (Riyadh)",
+                conf3: "Services and Sales Conference (Saudi Airlines)",
+                conf4: "1st & 2nd Saudi Career Day (Umm Al-Qura University)",
+                conf5: "Urban Environment Symposium (College of Engineering, UQU)",
+                conf6: "5th Saudi Engineering Conference (Umm Al-Qura University)",
+                certificationsTitle: "Accreditations",
+                cert1: "Accreditation Certificate from the American Council for Accrediting Certification (ACAC)",
+                languagesTitle: "Languages",
+                lang1: "Arabic (Native)",
+                lang2: "English (Advanced)",
+                referencesTitle: "References",
+                ref1Name: "Dr. Saad bin Atiyah Al-Ghamdi",
+                ref1Title: "Executive Vice President, Abdul Latif Jameel & Deputy Board Member, Alinma Bank",
+                ref1Phone: "00966505451042",
+                ref2: "All references are available upon request",
+                /* footerText key removed */
+                profileAlt: "Eng. Hatem Banaser"
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langToggleButton = document.getElementById('lang-toggle');
+            
+            langToggleButton.addEventListener('click', () => {
+                const currentLang = document.documentElement.lang;
+                const newLang = currentLang === 'ar' ? 'en' : 'ar';
+                
+                // Set HTML lang and dir
+                document.documentElement.lang = newLang;
+                document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+
+                // Update all text elements
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.dataset.translate;
+                    if (translations[newLang][key]) {
+                        element.textContent = translations[newLang][key];
+                    }
+                });
+
+                // Update elements with data-translate-alt (like images)
+                document.querySelectorAll('[data-translate-alt]').forEach(element => {
+                    const key = element.dataset.translateAlt;
+                    if (translations[newLang][key]) {
+                        element.alt = translations[newLang][key];
+                    }
+                });
+
+                // Update the page title
+                // FIX: Select the <title> element, not document.title (which is a string)
+                const titleElement = document.querySelector('title');
+                if (titleElement) {
+                    const titleKey = titleElement.dataset.translate;
+                    if (titleKey && translations[newLang][titleKey]) {
+                        document.title = translations[newLang][titleKey];
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
