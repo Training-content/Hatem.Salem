@@ -7,68 +7,552 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font 'Inter' -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Apply Inter font to the body */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7f6; /* Light gray-green background */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
+        
         /* Custom border color */
         h2 {
-            border-bottom-color: #004d40; /* Dark teal border */
+            border-bottom-color: #0d47a1; /* Deep Blue */
         }
+        
         /* Custom icon colors */
-        .icon-teal {
-            color: #00796b; /* Teal icon color */
+        .icon-primary {
+            color: #1565c0; /* Primary Blue */
+        }
+        
+        /* Header gradient */
+        .header-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        /* Sidebar gradient */
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+        
+        /* Experience card hover effect */
+        .experience-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .experience-card:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        [dir="ltr"] .experience-card {
+            border-left: none;
+            border-right: 4px solid #1976d2;
+        }
+        
+        [dir="ltr"] .experience-card:hover {
+            transform: translateX(5px);
         }
         
         /* Language toggle button styles */
         #lang-toggle {
-            position: fixed; /* Changed from absolute to fixed */
-            bottom: 1.5rem; /* Changed from top to bottom */
-            right: 1.5rem; /* Changed from left to right */
-            background-color: white;
-            color: #00796b;
-            border: 2px solid #00796b;
-            border-radius: 9999px; /* full */
-            width: 3rem; /* 48px */
-            height: 3rem; /* 48px */
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            width: 3.5rem;
+            height: 3.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.25rem; /* 20px */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.2s ease-in-out;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
             z-index: 50;
         }
+        
         #lang-toggle:hover {
-            background-color: #E0F2F1; /* teal-50 */
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6);
         }
 
         /* Adjust button position for RTL */
         [dir="rtl"] #lang-toggle {
-            right: auto; /* Changed from left: auto */
-            left: 1.5rem; /* Changed from right: 1.5rem */
+            right: auto;
+            left: 1.5rem;
         }
         
         /* Adjust list markers for RTL/LTR */
         [dir="rtl"] ul {
-            margin-right: 1.25rem; /* mr-5 */
+            margin-right: 1.25rem;
         }
         [dir="ltr"] ul {
-            margin-left: 1.25rem; /* ml-5 */
+            margin-left: 1.25rem;
+        }
+        
+        /* Skill badge styles */
+        .skill-badge {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Social media section responsive */
+        @media (max-width: 1024px) {
+            header .flex.items-center.justify-center.gap-6 {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            header .flex.items-center.justify-center.gap-6 a span {
+                display: none;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            /* Page setup for A4 - ULTRA MINIMAL MARGINS */
+            @page {
+                size: A4 portrait;
+                margin: 5mm 7mm;
+            }
+            
+            body {
+                background: white !important;
+                font-size: 8.5pt;
+                line-height: 1.25;
+            }
+            
+            /* Hide elements not needed in print */
+            #lang-toggle {
+                display: none !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            /* Container adjustments */
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Main card */
+            .bg-white {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            
+            /* Header styling for print - OPTIMIZED NEW DESIGN */
+            header {
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color: white !important;
+                page-break-after: avoid;
+                padding: 3mm 5mm !important;
+            }
+            
+            header * {
+                color: white !important;
+            }
+            
+            /* Show social media in print - COMPACT */
+            header > div:last-child {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 2mm !important;
+                margin-top: 2mm !important;
+                padding-top: 2mm !important;
+                font-size: 6.5pt !important;
+            }
+            
+            header > div:last-child a {
+                gap: 1mm !important;
+            }
+            
+            header > div:last-child i {
+                font-size: 8pt !important;
+            }
+            
+            header > div:last-child span {
+                font-size: 6pt !important;
+            }
+            
+            /* Header flex layout for print - FIXED DIRECTION */
+            header > div:first-child {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 2mm !important;
+                direction: ltr !important;
+            }
+            
+            header > div:first-child > div {
+                flex: 1 !important;
+            }
+            
+            /* Center section */
+            header > div:first-child > div:nth-child(2) {
+                flex: 0 1 auto !important;
+                max-width: 45% !important;
+                text-align: center !important;
+            }
+            
+            /* Keep name in single line */
+            header h1 {
+                font-size: 11pt !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0mm !important;
+                white-space: nowrap !important;
+                overflow: visible !important;
+            }
+            
+            /* Keep email in single line */
+            header span[data-translate="email"],
+            header span[data-translate="phone"] {
+                white-space: nowrap !important;
+                font-size: 6pt !important;
+            }
+            
+            /* Profile image - FIXED ON RIGHT */
+            img {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                width: 60px !important;
+                height: 60px !important;
+                max-width: 60px !important;
+                max-height: 60px !important;
+                flex-shrink: 0 !important;
+            }
+            
+            /* Contact info font sizes */
+            header .text-sm {
+                font-size: 6.5pt !important;
+            }
+            
+            header .text-xs {
+                font-size: 6pt !important;
+            }
+            
+            header .text-base {
+                font-size: 7pt !important;
+            }
+            
+            header p {
+                white-space: nowrap !important;
+                font-size: 7pt !important;
+            }
+            
+            /* Space adjustments */
+            header .space-y-1\.5 > * + * {
+                margin-top: 0.4mm !important;
+            }
+            
+            header .gap-3 {
+                gap: 1.5mm !important;
+            }
+            
+            /* Sidebar background for print */
+            aside {
+                background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                padding: 2.5mm !important;
+            }
+            
+            /* Grid layout for print */
+            main {
+                display: grid !important;
+                grid-template-columns: 2fr 1fr !important;
+            }
+            
+            /* Main content area - minimal padding */
+            main > div:first-child {
+                padding: 2.5mm !important;
+            }
+            
+            /* Remove extra padding */
+            .p-6, .p-8, .p-12, .sm\:p-8, .sm\:p-12 {
+                padding: 2.5mm !important;
+            }
+            
+            /* Prevent page breaks inside elements */
+            h2, h3 {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .experience-card,
+            section > div {
+                page-break-inside: avoid;
+            }
+            
+            /* Compact spacing - ULTRA MINIMAL */
+            section {
+                margin-bottom: 1.5mm !important;
+            }
+            
+            .mb-10 {
+                margin-bottom: 1.5mm !important;
+            }
+            
+            .mb-8 {
+                margin-bottom: 1.5mm !important;
+            }
+            
+            .mb-6 {
+                margin-bottom: 1.2mm !important;
+            }
+            
+            .mb-5 {
+                margin-bottom: 1mm !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 1mm !important;
+            }
+            
+            .mb-3 {
+                margin-bottom: 0.6mm !important;
+            }
+            
+            .mb-2 {
+                margin-bottom: 0.4mm !important;
+            }
+            
+            .mb-1 {
+                margin-bottom: 0.2mm !important;
+            }
+            
+            .mt-2, .mt-1 {
+                margin-top: 0.4mm !important;
+            }
+            
+            .space-y-6 > * + * {
+                margin-top: 1mm !important;
+            }
+            
+            .space-y-4 > * + * {
+                margin-top: 0.8mm !important;
+            }
+            
+            .space-y-3 > * + * {
+                margin-top: 0.6mm !important;
+            }
+            
+            .space-y-1 > * + *, .space-y-0\.5 > * + * {
+                margin-top: 0.2mm !important;
+            }
+            
+            /* Experience cards - ultra compact */
+            .experience-card {
+                padding: 1.2mm 2mm !important;
+                margin-bottom: 0.8mm !important;
+                border-left-color: #1976d2 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            [dir="ltr"] .experience-card {
+                border-right-color: #1976d2 !important;
+            }
+            
+            /* Lists - ultra compact */
+            ul {
+                margin-top: 0.3mm !important;
+                margin-bottom: 0.3mm !important;
+            }
+            
+            li {
+                margin-bottom: 0.2mm !important;
+            }
+            
+            /* Colors preservation */
+            .icon-primary {
+                color: #1565c0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Border colors */
+            .border-blue-800,
+            .border-blue-200 {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Text colors for print */
+            .text-blue-900,
+            .text-blue-800 {
+                color: #0d47a1 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .border-blue-300 {
+                border-color: #64b5f6 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Skill badges */
+            .skill-badge {
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color: white !important;
+                padding: 1mm 1.2mm !important;
+                font-size: 6.5pt !important;
+            }
+            
+            /* Footer */
+            footer {
+                display: none !important;
+            }
+            
+            /* Font sizes for print - COMPACT */
+            h1 {
+                font-size: 15pt !important;
+                margin-bottom: 0.4mm !important;
+                line-height: 1.1 !important;
+            }
+            
+            h2 {
+                font-size: 10.5pt !important;
+                padding-bottom: 0.6mm !important;
+                margin-bottom: 1mm !important;
+                border-bottom-width: 1px !important;
+            }
+            
+            h3 {
+                font-size: 9pt !important;
+                margin-bottom: 0.2mm !important;
+            }
+            
+            p, li, span, div {
+                font-size: 8.5pt !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* About section */
+            .leading-relaxed {
+                line-height: 1.35 !important;
+            }
+            
+            /* Contact info in header */
+            header .text-sm {
+                font-size: 7pt !important;
+            }
+            
+            header .text-xl {
+                font-size: 9pt !important;
+                margin-top: 0mm !important;
+            }
+            
+            header h1 {
+                font-size: 13pt !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0mm !important;
+                white-space: nowrap !important;
+                overflow: visible !important;
+            }
+            
+            /* Grid adjustments - ULTRA MINIMAL */
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8mm !important;
+            }
+            
+            .gap-4, .gap-6, .gap-8 {
+                gap: 1mm !important;
+            }
+            
+            /* Skill badges - compact */
+            .skill-badge {
+                padding: 1mm 1.2mm !important;
+                font-size: 6.5pt !important;
+            }
+            
+            /* Header flex for horizontal layout */
+            header .flex-col {
+                flex-direction: row !important;
+            }
+            
+            header .text-center {
+                text-align: right !important;
+            }
+            
+            /* Sidebar text sizes */
+            aside h2 {
+                font-size: 9.5pt !important;
+            }
+            
+            aside h3 {
+                font-size: 8pt !important;
+            }
+            
+            aside p, aside li, aside span {
+                font-size: 7.5pt !important;
+            }
+            
+            /* Remove extra spacing from icons */
+            .fa-fw {
+                margin-left: 0 !important;
+                margin-right: 1mm !important;
+            }
+            
+            [dir="ltr"] .fa-fw {
+                margin-left: 1mm !important;
+                margin-right: 0 !important;
+            }
+            
+            /* Compact borders */
+            .border-b-2 {
+                border-bottom-width: 1px !important;
+            }
+            
+            .border-b-4 {
+                border-bottom-width: 2px !important;
+            }
+            
+            .rounded-lg {
+                border-radius: 2mm !important;
+            }
+            
+            /* Force Conferences section to page 2 */
+            .conferences-section {
+                page-break-before: always !important;
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+            
+            @media print and (max-width: 768px) {
+                header .md\:flex-row {
+                    flex-direction: row !important;
+                }
+            }
         }
     </style>
 </head>
 <body class="antialiased text-gray-800">
 
     <!-- Main Container -->
-    <div class="container mx-auto max-w-7xl p-4 sm:p-8 my-8"> <!-- Removed 'relative' class -->
+    <div class="container mx-auto max-w-7xl p-4 sm:p-8 my-8">
         <!-- Language Toggle Button -->
         <button id="lang-toggle" aria-label="Toggle Language">
             <i class="fas fa-globe"></i>
@@ -76,57 +560,82 @@
 
         <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
             
-            <!-- Header Section -->
-            <header class="p-8 sm:p-12 bg-gray-50 border-b-4 border-teal-700">
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    <!-- Profile Image -->
-                    <img src="https://placehold.co/150x150/E0F2F1/00796B?text=HB&font=inter" 
-                         alt="المهندس حاتم باناصر" 
-                         data-translate-alt="profileAlt"
-                         class="rounded-full w-32 h-32 md:w-40 md:h-40 object-cover border-4 border-teal-600 shadow-md">
+            <!-- Header Section - FIXED LAYOUT -->
+            <header class="p-6 sm:p-8 header-gradient border-b-4 border-blue-800">
+                <!-- Main Header Row - FIXED DIRECTION -->
+                <div class="flex flex-row items-center justify-between gap-4" style="direction: ltr !important;">
                     
-                    <!-- Personal Info -->
-                    <div class="flex-grow text-center md:text-right">
-                        <h1 class="text-4xl font-bold text-teal-900" data-translate="profileName">المهندس حاتم سالم حسن باناصر</h1>
-                        <p class="text-xl text-gray-600 mt-2" data-translate="location">جدة, المملكة العربية السعودية</p>
-                        
-                        <!-- Contact Details -->
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6 text-sm text-gray-700">
-                            <div class="flex items-center justify-center md:justify-start">
-                                <i class="fas fa-phone fa-fw me-2 icon-teal"></i>
-                                <a href="tel:+966555554051" class="hover:text-teal-700" data-translate="phone">+966555554051</a>
-                            </div>
-                            <div class="flex items-center justify-center md:justify-start col-span-2 sm:col-span-1">
-                                <i class="fas fa-envelope fa-fw me-2 icon-teal"></i>
-                                <a href="mailto:HATEMBANASER@GMAIL.COM" class="hover:text-teal-700 break-all" data-translate="email">HATEMBANASER@GMAIL.COM</a>
-                            </div>
-                            <div class="flex items-center justify-center md:justify-start">
-                                <i class="fas fa-flag fa-fw me-2 icon-teal"></i>
+                    <!-- Left Side - Additional Info -->
+                    <div class="flex-1 text-left">
+                        <div class="space-y-1.5 text-white">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-flag fa-fw me-2"></i>
                                 <span data-translate="nationality">سعودي</span>
                             </div>
-                            <div class="flex items-center justify-center md:justify-start">
-                                <i class="fas fa-calendar-days fa-fw me-2 icon-teal"></i>
-                                <span data-translate="dob">1978/12/05</span>
-                            </div>
-                            <div class="flex items-center justify-center md:justify-start">
-                                <i class="fas fa-ring fa-fw me-2 icon-teal"></i>
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-ring fa-fw me-2"></i>
                                 <span data-translate="maritalStatus">متزوج</span>
                             </div>
-                        </div>
-
-                        <!-- Social Links -->
-                        <div class="flex justify-center md:justify-start space-x-4 space-x-reverse mt-6">
-                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin fa-2x"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="Twitter">
-                                <i class="fa-brands fa-twitter fa-2x"></i>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-teal-700" aria-label="Blog/Website">
-                                <i class="fa-solid fa-globe fa-2x"></i>
-                            </a>
+                            <div class="flex items-center text-xs">
+                                <i class="fas fa-calendar-days fa-fw me-2"></i>
+                                <span data-translate="dob">1978/12/05</span>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- Center - Name & Location -->
+                    <div class="flex-shrink-0 text-center" style="max-width: 50%;">
+                        <h1 class="text-lg md:text-xl lg:text-2xl font-bold text-white whitespace-nowrap" data-translate="profileName">المهندس حاتم سالم حسن باناصر</h1>
+                        <p class="text-sm md:text-base text-blue-100 mt-1 whitespace-nowrap" data-translate="location">جدة, المملكة العربية السعودية</p>
+                    </div>
+                    
+                    <!-- Right Side - Profile Image & Contact (ALWAYS ON RIGHT) -->
+                    <div class="flex-1 flex items-center justify-end gap-3">
+                        <div class="text-white text-right space-y-1.5">
+                            <div class="flex items-center justify-end text-sm">
+                                <span class="whitespace-nowrap" data-translate="phone">+966555554051</span>
+                                <i class="fas fa-phone fa-fw ms-2"></i>
+                            </div>
+                            <div class="flex items-center justify-end text-xs">
+                                <span class="whitespace-nowrap" data-translate="email">HATEMBANASER@GMAIL.COM</span>
+                                <i class="fas fa-envelope fa-fw ms-2"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Profile Image ALWAYS on RIGHT -->
+                        <img src="https://z-cdn-media.chatglm.cn/files/85644cbd-79da-4f24-b466-5692f51505dd_Gemini_Generated_Image_ftv4ghftv4ghftv4.png?auth_key=1762298035-895ed37793034483b3c16691d644a1db-0-e8b4e7f6717f14cf1acfa0c8ce3f23bb" 
+                             alt="المهندس حاتم باناصر" 
+                             data-translate-alt="profileAlt"
+                             class="rounded-full w-28 h-28 md:w-36 md:h-36 object-cover border-4 border-white shadow-xl flex-shrink-0">
+                    </div>
+                </div>
+                
+                <!-- Social Media Links - Bottom of Header -->
+                <div class="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-white border-opacity-30">
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialLinkedIn">HATEM SALEM BANASER</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialYouTube">HATEM BANASER</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialInstagram">HATEM_BANASER</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialFacebook">HATEMBANASER</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialTwitter">HATEMBANASER</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 text-white hover:text-blue-200 transition-all text-xs" aria-label="Snapchat">
+                        <i class="fa-brands fa-snapchat fa-lg"></i>
+                        <span class="font-semibold whitespace-nowrap" data-translate="socialSnapchat">HATEMBANASER</span>
+                    </a>
                 </div>
             </header>
 
@@ -134,79 +643,79 @@
             <main class="grid grid-cols-1 lg:grid-cols-3 gap-0">
 
                 <!-- Primary Column (Right Side in RTL) -->
-                <div class="lg:col-span-2 p-8 sm:p-12">
+                <div class="lg:col-span-2 p-6 sm:p-8">
                     
                     <!-- About Me Section -->
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="aboutMeTitle">نبذة عني</h2>
-                        <p class="text-gray-700 leading-relaxed" data-translate="aboutMeText">
+                    <section class="mb-6">
+                        <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="aboutMeTitle">نبذة عني</h2>
+                        <p class="text-gray-700 leading-relaxed text-sm" data-translate="aboutMeText">
                             أسعى للحصول على وظيفة أستطيع من خلالها نقل خبراتي ومهاراتي المكتسبة من خلال الوظائف الفنية والإدارية والاستشارية والتنفيذية والقيادية التي عملت بها خلال حياتي العملية في الشركات المختلفة في القطاعين الحكومي والخاص وذلك لتطبيق مافتح الله به علي لتطوير عجلة الأعمال والإنتاجية في قطاع العمل بالمملكة العربية السعودية سعياً لتحقيق رؤية سيدي ولي العهد سمو الأمير محمد بن سلمان المملكة ۲۰۳۰ والتي تصبو نتائجها لتطوير وتنمية شباب وشابات الوطن للانخراط في سوق العمل لتعزيز مكانة المملكة ووضعها الاقتصادي ومكانتها بين دول العالم المتقدم.
                         </p>
                     </section>
 
                     <!-- Work Experience Section -->
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="experienceTitle">الخبرة العملية</h2>
-                        <div class="space-y-6">
+                    <section class="mb-6">
+                        <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-4" data-translate="experienceTitle">الخبرة العملية</h2>
+                        <div class="space-y-3">
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp1Title">الرئيس التنفيذي</h3>
-                                <p class="text-gray-600" data-translate="exp1Company">شركة ركايا للإستشارات الإدارية</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp1Date">٢٠٢٣ - ٢٠٢٥</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp1Title">الرئيس التنفيذي</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp1Company">شركة ركايا للإستشارات الإدارية</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp1Date">٢٠٢٣ - ٢٠٢٥</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp2Title">مستشار تطوير الاعمال</h3>
-                                <p class="text-gray-600" data-translate="exp2Company">شركة اتقان للاستشارات</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp2Date">٢٠٢٠ - ٢٠٢٢</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp2Title">مستشار تطوير الاعمال</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp2Company">شركة اتقان للاستشارات</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp2Date">٢٠٢٠ - ٢٠٢٢</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp3Title">رئيس قطاع التشغيل والصيانة</h3>
-                                <p class="text-gray-600" data-translate="exp3Company">المركز الطبي الدولي IMC - جدة</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp3Date">٢٠١٧ - حتى الان</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp3Title">رئيس قطاع التشغيل والصيانة</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp3Company">المركز الطبي الدولي IMC - جدة</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp3Date">٢٠١٧ - حتى الان</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp4Title">مدير عام صيانة الممتلكات</h3>
-                                <p class="text-gray-600" data-translate="exp4Company">شركة الخطوط السعودية</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp4Date">٢٠١٥ - ٢٠١٧</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp4Title">مدير عام صيانة الممتلكات</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp4Company">شركة الخطوط السعودية</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp4Date">٢٠١٥ - ٢٠١٧</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp5Title">مستشار التدريب والتطوير</h3>
-                                <p class="text-gray-600" data-translate="exp5Company">مركز انتقاء وإرتقاء للتدريب والتطوير - جدة</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp5Date">٢٠١٥ - ٢٠١٧</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp5Title">مستشار التدريب والتطوير</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp5Company">مركز انتقاء وإرتقاء للتدريب والتطوير - جدة</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp5Date">٢٠١٥ - ٢٠١٧</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp6Title">مدير عام صيانة المرافق</h3>
-                                <p class="text-gray-600" data-translate="exp6Company">الخطوط الجوية العربية السعودية</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp6Date">٢٠١٤ - ٢٠١٥</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp6Title">مدير عام صيانة المرافق</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp6Company">الخطوط الجوية العربية السعودية</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp6Date">٢٠١٤ - ٢٠١٥</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp7Title">مدير إدارة المشاريع والتنسيق</h3>
-                                <p class="text-gray-600" data-translate="exp7Company">الخطوط الجوية العربية السعودية</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp7Date">٢٠١٢ - ٢٠١٤</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp7Title">مدير إدارة المشاريع والتنسيق</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp7Company">الخطوط الجوية العربية السعودية</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp7Date">٢٠١٢ - ٢٠١٤</p>
                             </div>
                             <!-- Experience Item -->
-                            <div class="p-4 border border-gray-200 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="exp8Title">مستشار التوظيف والتقييم المهني</h3>
-                                <p class="text-gray-600" data-translate="exp8Company">شركة عبداللطيف جميل تويوتا اللجنة الإستشارية</p>
-                                <p class="text-sm text-gray-500 mt-1" data-translate="exp8Date">(التواريخ غير محددة في الصورة)</p>
+                            <div class="p-3 border border-gray-200 rounded-lg shadow-sm experience-card bg-white">
+                                <h3 class="text-lg font-semibold text-gray-900" data-translate="exp8Title">مستشار التوظيف والتقييم المهني</h3>
+                                <p class="text-gray-600 text-sm" data-translate="exp8Company">شركة عبداللطيف جميل تويوتا اللجنة الإستشارية</p>
+                                <p class="text-xs text-gray-500 mt-1" data-translate="exp8Date">(التواريخ غير محددة في الصورة)</p>
                             </div>
                         </div>
                     </section>
                     
                     <!-- Projects Section -->
-                    <section class="mb-10">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="projectsTitle">المشاريع (أكثر من 370 مشروع وإنجاز)</h2>
-                        <div class="space-y-6">
+                    <section class="mb-6">
+                        <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-4" data-translate="projectsTitle">المشاريع (أكثر من 370 مشروع وإنجاز)</h2>
+                        <div class="space-y-4">
                             <!-- Project Item -->
                             <div>
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj1Title">المركز الطبي الدولي (IMC)</h3>
-                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1" data-translate="proj1Title">المركز الطبي الدولي (IMC)</h3>
+                                <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
                                     <li data-translate="proj1Li1">مشروع سكن الممرضات.</li>
                                     <li data-translate="proj1Li2">تصميم وتأثيث الأجنحة والوحدات السكنية ومرافق المركز.</li>
                                     <li data-translate="proj1Li3">إدارة المرافق والصيانة والتشغيل بالمركز.</li>
@@ -215,9 +724,9 @@
                             </div>
                             <!-- Project Item -->
                             <div>
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj2Title">الخطوط الجوية العربية السعودية (SAUDIA)</h3>
-                                <p class="text-sm text-gray-600" data-translate="proj2Subtitle">كمدير إدارة المشاريع والتنسيق (ميزانيات تتخطى ١٧٦ مليون ريال)</p>
-                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1" data-translate="proj2Title">الخطوط الجوية العربية السعودية (SAUDIA)</h3>
+                                <p class="text-xs text-gray-600 mb-1" data-translate="proj2Subtitle">كمدير إدارة المشاريع والتنسيق (ميزانيات تتخطى ١٧٦ مليون ريال)</p>
+                                <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
                                     <li data-translate="proj2Li1">مشروع أكاديمية الأمير سلطان لعلوم الطيران بجدة (المرحلة الثانية).</li>
                                     <li data-translate="proj2Li2">إنشاء وتشغيل وصيانة محطة تنقية المياه بمدينة الخطوط السعودية (بالتعاون مع هيتاشي).</li>
                                     <li data-translate="proj2Li3">مجمع فلل فاخرة لسكن مستشارين بمدينة الخطوط السعودية.</li>
@@ -226,9 +735,9 @@
                             </div>
                             <!-- Project Item -->
                             <div>
-                                <h3 class="text-xl font-semibold text-gray-900" data-translate="proj3Title">شركة الخطوط السعودية لتنمية وتطوير العقار (SARED)</h3>
-                                <p class="text-sm text-gray-600" data-translate="proj3Subtitle">كمدير عام صيانة الممتلكات (ميزانيات تتخطى ٣١٢ مليون ريال)</p>
-                                <ul class="list-disc list-outside mt-2 text-gray-700 space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1" data-translate="proj3Title">شركة الخطوط السعودية لتنمية وتطوير العقار (SARED)</h3>
+                                <p class="text-xs text-gray-600 mb-1" data-translate="proj3Subtitle">كمدير عام صيانة الممتلكات (ميزانيات تتخطى ٣١٢ مليون ريال)</p>
+                                <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
                                     <li data-translate="proj3Li1">تصميم وتأثيث مبنى ومكاتب الإدارة العامة للشركة بجدة والرياض.</li>
                                     <li data-translate="proj3Li2">تصميم وتأثيث مبنى الإدارة الإقليمية للشركة بدبي.</li>
                                     <li data-translate="proj3Li3">مشاريع مباني ومكاتب فروع (بومباي، جاكرتا، دكا).</li>
@@ -241,15 +750,15 @@
 
                     <!-- Media Activities Section -->
                     <section>
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6" data-translate="mediaTitle">الأنشطة الإعلامية</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <h2 class="text-2xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-4" data-translate="mediaTitle">الأنشطة الإعلامية</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <h3 class="text-xl font-semibold text-gray-900 mb-3" data-translate="media1Title">مقالات</h3>
-                                <p class="text-gray-700" data-translate="media1Text">مقال بعنوان "آليات إختيار الموظفين"</p>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2" data-translate="media1Title">مقالات</h3>
+                                <p class="text-gray-700 text-sm" data-translate="media1Text">مقال بعنوان "آليات إختيار الموظفين"</p>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-gray-900 mb-3" data-translate="media2Title">لقاءات تلفزيونية وإذاعية</h3>
-                                <ul class="list-disc list-outside text-gray-700 space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2" data-translate="media2Title">لقاءات تلفزيونية وإذاعية</h3>
+                                <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
                                     <li data-translate="media2Li1">فهم الشخصيات وتحليلها (2016/11/06)</li>
                                     <li data-translate="media2Li2">الذكاء العاطفي ولغة الحوار (2015/02/01)</li>
                                     <li data-translate="media2Li3">فنيات التفاوض والإقناع في الحياة (برنامج نبراس 2013/06/04)</li>
@@ -261,100 +770,100 @@
                 </div>
 
                 <!-- Sidebar Column (Left Side in RTL) -->
-                <aside class="lg:col-span-1 p-8 sm:p-12 bg-teal-50 lg:border-r-8 border-teal-100">
+                <aside class="lg:col-span-1 p-6 sm:p-8 sidebar-gradient lg:border-r-8 border-blue-200">
 
                     <!-- Education Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="educationTitle">التعليم</h2>
-                        <div class="space-y-4">
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="educationTitle">التعليم</h2>
+                        <div class="space-y-3">
                             <div>
-                                <h3 class="font-semibold text-gray-900" data-translate="edu1Title">بكالوريوس الهندسة المعمارية</h3>
-                                <p class="text-sm text-gray-600" data-translate="edu1Text">كلية الهندسة والعمارة الإسلامية, جامعة أم القرى، مكة المكرمة</p>
+                                <h3 class="font-semibold text-gray-900 text-sm" data-translate="edu1Title">بكالوريوس الهندسة المعمارية</h3>
+                                <p class="text-xs text-gray-600" data-translate="edu1Text">كلية الهندسة والعمارة الإسلامية, جامعة أم القرى، مكة المكرمة</p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900" data-translate="edu2Title">دبلوم ورخصة معتمدة لإدارة الأملاك العقارية</h3>
-                                <p class="text-sm text-gray-600" data-translate="edu2Text">معهد دبي العقاري - حكومة دبي</p>
+                                <h3 class="font-semibold text-gray-900 text-sm" data-translate="edu2Title">دبلوم ورخصة معتمدة لإدارة الأملاك العقارية</h3>
+                                <p class="text-xs text-gray-600" data-translate="edu2Text">معهد دبي العقاري - حكومة دبي</p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900" data-translate="edu3Title">دبلوم مقيم وظيفي معتمد</h3>
-                                <p class="text-sm text-gray-600" data-translate="edu3Text">المركز العربي للتعليم لإختيار الموظفين</p>
+                                <h3 class="font-semibold text-gray-900 text-sm" data-translate="edu3Title">دبلوم مقيم وظيفي معتمد</h3>
+                                <p class="text-xs text-gray-600" data-translate="edu3Text">المركز العربي للتعليم لإختيار الموظفين</p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-900" data-translate="edu4Title">دبلوم عالي في الإرشاد الأسري</h3>
-                                <p class="text-sm text-gray-600" data-translate="edu4Text">أكاديمية الفرحة بدبي (إشراف د. جاسم المطوع)</p>
+                                <h3 class="font-semibold text-gray-900 text-sm" data-translate="edu4Title">دبلوم عالي في الإرشاد الأسري</h3>
+                                <p class="text-xs text-gray-600" data-translate="edu4Text">أكاديمية الفرحة بدبي (إشراف د. جاسم المطوع)</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Skills Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="skillsTitle">المهارات</h2>
-                        <div class="grid grid-cols-2 gap-3 text-sm">
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-sitemap fa-fw me-2 icon-teal"></i>
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="skillsTitle">المهارات</h2>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-sitemap fa-fw me-1.5"></i>
                                 <span data-translate="skill1">التخطيط الاستراتيجي</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-file-signature fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-file-signature fa-fw me-1.5"></i>
                                 <span data-translate="skill2">إبرام العقود والاتفاقيات</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-calculator fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-calculator fa-fw me-1.5"></i>
                                 <span data-translate="skill3">بناء ودراسة الميزانيات</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-lightbulb fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-lightbulb fa-fw me-1.5"></i>
                                 <span data-translate="skill4">تحفيز الآخرين</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-drafting-compass fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-drafting-compass fa-fw me-1.5"></i>
                                 <span data-translate="skill5">تصميم وتقييم البرامج</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-database fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-database fa-fw me-1.5"></i>
                                 <span data-translate="skill6">برنامج ساب (SAP)</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-magnifying-glass-chart fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-magnifying-glass-chart fa-fw me-1.5"></i>
                                 <span data-translate="skill7">تحليل الإحتياجات</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-comments fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-comments fa-fw me-1.5"></i>
                                 <span data-translate="skill8">التفاوض والإقناع</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-user-check fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-user-check fa-fw me-1.5"></i>
                                 <span data-translate="skill9">تحديد المعارف والسلوكيات</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-concierge-bell fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-concierge-bell fa-fw me-1.5"></i>
                                 <span data-translate="skill10">الضيافة والفندقة</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-bullhorn fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-bullhorn fa-fw me-1.5"></i>
                                 <span data-translate="skill11">المبيعات والتسويق</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-cogs fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-cogs fa-fw me-1.5"></i>
                                 <span data-translate="skill12">التطوير وإعداد الأنظمة</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-brain fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-brain fa-fw me-1.5"></i>
                                 <span data-translate="skill13">التحليل النفسي الوظيفي</span>
                             </div>
-                            <div class="bg-white p-3 rounded-lg flex items-center shadow-sm">
-                                <i class="fas fa-chalkboard-user fa-fw me-2 icon-teal"></i>
+                            <div class="skill-badge p-2 rounded-lg flex items-center shadow-sm">
+                                <i class="fas fa-chalkboard-user fa-fw me-1.5"></i>
                                 <span data-translate="skill14">التدريب</span>
                             </div>
                         </div>
                     </section>
 
                      <!-- Training Courses Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="coursesTitle">الدورات التدريبية</h2>
-                        <p class="text-gray-700 mb-3" data-translate="coursesSubtitle">أكثر من 89 دورة وورشة عمل ورخص معتمدة (من ١٩٩٨ إلى ٢٠١٨)</p>
-                        <h3 class="font-semibold text-gray-800 mb-2" data-translate="coursesHeader">من أهم المواضيع:</h3>
-                        <ul class="list-disc list-outside text-gray-700 space-y-1 text-sm">
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="coursesTitle">الدورات التدريبية</h2>
+                        <p class="text-gray-700 mb-2 text-sm" data-translate="coursesSubtitle">أكثر من 89 دورة وورشة عمل ورخص معتمدة (من ١٩٩٨ إلى ٢٠١٨)</p>
+                        <h3 class="font-semibold text-gray-800 mb-1.5 text-sm" data-translate="coursesHeader">من أهم المواضيع:</h3>
+                        <ul class="list-disc list-outside text-gray-700 space-y-0.5 text-xs">
                             <li data-translate="course1">القوة والنفوذ</li>
                             <li data-translate="course2">إعداد المدربيين المعتمديين</li>
                             <li data-translate="course3">القيادة</li>
@@ -366,9 +875,9 @@
                     </section>
 
                     <!-- Memberships Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="membershipsTitle">العضويات</h2>
-                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="membershipsTitle">العضويات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-0.5 text-xs">
                             <li data-translate="mem1">عضو جمعية الشرق الأوسط لإدارة المرافق (MEFMA)</li>
                             <li data-translate="mem2">عضوية الهيئة السعودية للمهندسين</li>
                             <li data-translate="mem3">عضوية الكود السعودي للبناء بالرياض</li>
@@ -377,9 +886,9 @@
                     </section>
 
                     <!-- Conferences Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="conferencesTitle">المؤتمرات والندوات</h2>
-                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                    <section class="mb-5 conferences-section">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="conferencesTitle">المؤتمرات والندوات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-0.5 text-xs">
                             <li data-translate="conf1">الملتقى الأول والثاني للجودة النوعية (الخطوط السعودية)</li>
                             <li data-translate="conf2">مؤتمر الكود السعودي للبناء (الرياض)</li>
                             <li data-translate="conf3">مؤتمر الخدمات والمبيعات (الخطوط السعودية)</li>
@@ -390,15 +899,15 @@
                     </section>
 
                     <!-- Certifications Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="certificationsTitle">الإعتمادات</h2>
-                        <p class="text-gray-700" data-translate="cert1">شهادة إعتماد من المجلس الأمريكي لإعتماد الشهادات المهنية للمدراء (ACAC)</p>
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="certificationsTitle">الإعتمادات</h2>
+                        <p class="text-gray-700 text-xs" data-translate="cert1">شهادة إعتماد من المجلس الأمريكي لإعتماد الشهادات المهنية للمدراء (ACAC)</p>
                     </section>
 
                     <!-- Languages Section -->
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="languagesTitle">اللغات</h2>
-                        <ul class="list-disc list-outside text-gray-700 space-y-1">
+                    <section class="mb-5">
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="languagesTitle">اللغات</h2>
+                        <ul class="list-disc list-outside text-gray-700 space-y-0.5 text-xs">
                             <li data-translate="lang1">اللغة العربية (اللغة الأم)</li>
                             <li data-translate="lang2">اللغة الإنجليزية (مستوى متقدم)</li>
                         </ul>
@@ -406,13 +915,13 @@
 
                     <!-- References Section -->
                     <section>
-                        <h2 class="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-4" data-translate="referencesTitle">المعرفون</h2>
-                        <div class="mb-4">
-                            <h3 class="font-semibold text-gray-900" data-translate="ref1Name">د / سعد بن عطية الغامدي</h3>
-                            <p class="text-sm text-gray-600" data-translate="ref1Title">نائب الرئيس التنفيذي, الشركة عبد اللطيف جميل ونائب عضو مجلس إدارة مصرف الإنماء</p>
-                            <p class="text-sm text-gray-600" data-translate="ref1Phone">00966505451042</p>
+                        <h2 class="text-xl font-bold text-blue-900 border-b-2 border-blue-300 pb-2 mb-3" data-translate="referencesTitle">المعرفون</h2>
+                        <div class="mb-3">
+                            <h3 class="font-semibold text-gray-900 text-sm" data-translate="ref1Name">د / سعد بن عطية الغامدي</h3>
+                            <p class="text-xs text-gray-600" data-translate="ref1Title">نائب الرئيس التنفيذي, الشركة عبد اللطيف جميل ونائب عضو مجلس إدارة مصرف الإنماء</p>
+                            <p class="text-xs text-gray-600" data-translate="ref1Phone">00966505451042</p>
                         </div>
-                        <p class="text-gray-600 italic" data-translate="ref2">جميع المراجع متاحة عند الطلب</p>
+                        <p class="text-gray-600 italic text-xs" data-translate="ref2">جميع المراجع متاحة عند الطلب</p>
                     </section>
 
                 </aside>
@@ -421,7 +930,7 @@
             
             <!-- Footer -->
             <footer class="text-center p-4 bg-gray-50 border-t border-gray-200">
-                <!-- Removed the <p> tag that was here -->
+                <!-- Empty footer -->
             </footer>
         </div>
     </div>
@@ -545,11 +1054,16 @@
                 lang2: "اللغة الإنجليزية (مستوى متقدم)",
                 referencesTitle: "المعرفون",
                 ref1Name: "د / سعد بن عطية الغامدي",
-                ref1Title: "نائب الرئيس التنفيذي, الشركة عبد اللطif Jameel & Deputy Board Member, Alinma Bank",
+                ref1Title: "نائب الرئيس التنفيذي, الشركة عبد اللطيف جميل ونائب عضو مجلس إدارة مصرف الإنماء",
                 ref1Phone: "00966505451042",
                 ref2: "جميع المراجع متاحة عند الطلب",
-                /* footerText key removed */
-                profileAlt: "المهندس حاتم باناصر"
+                profileAlt: "المهندس حاتم باناصر",
+                socialLinkedIn: "HATEM SALEM BANASER",
+                socialYouTube: "HATEM BANASER",
+                socialInstagram: "HATEM_BANASER",
+                socialFacebook: "HATEMBANASER",
+                socialTwitter: "HATEMBANASER",
+                socialSnapchat: "HATEMBANASER"
             },
             en: {
                 pageTitle: "CV - Eng. Hatem Salem Hassan Banaser",
@@ -670,8 +1184,13 @@
                 ref1Title: "Executive Vice President, Abdul Latif Jameel & Deputy Board Member, Alinma Bank",
                 ref1Phone: "00966505451042",
                 ref2: "All references are available upon request",
-                /* footerText key removed */
-                profileAlt: "Eng. Hatem Banaser"
+                profileAlt: "Eng. Hatem Banaser",
+                socialLinkedIn: "HATEM SALEM BANASER",
+                socialYouTube: "HATEM BANASER",
+                socialInstagram: "HATEM_BANASER",
+                socialFacebook: "HATEMBANASER",
+                socialTwitter: "HATEMBANASER",
+                socialSnapchat: "HATEMBANASER"
             }
         };
 
@@ -703,7 +1222,6 @@
                 });
 
                 // Update the page title
-                // FIX: Select the <title> element, not document.title (which is a string)
                 const titleElement = document.querySelector('title');
                 if (titleElement) {
                     const titleKey = titleElement.dataset.translate;
@@ -717,6 +1235,3 @@
 
 </body>
 </html>
-
-
-
